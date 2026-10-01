@@ -1,0 +1,10 @@
+name: PHP checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: php --version
+      - run: find . -name '*.php' -print0 | xargs -0 -n1 php -l
+      - run: python3 tests/integration.py
