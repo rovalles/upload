@@ -93,6 +93,10 @@ Replace and move return a singular `image` object. Listing returns `images`. Err
 { "error": { "code": "IMAGE_NOT_FOUND", "message": "The requested image does not exist." } }
 ```
 
+## Code organization
+
+`public/index.php` handles configuration, origin checks, routing and shared errors. `src/ImageHandlers.php` defines `listImages`, `viewImage`, `uploadImages`, `replaceImage`, `moveImage`, and `deleteImage`. Image validation and filesystem operations remain in their own classes.
+
 ## Checks and future resizing
 
 ```sh
